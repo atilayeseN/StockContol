@@ -1,0 +1,37 @@
+﻿@using newDye.Models
+@model ItemViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<div class="container">
+    <div class="col-md-4">
+        <div class="form-group">
+            Category:
+            @Html.DropDownListFor(model => model.CategoryId, new SelectList(Model.CategorySelectListItem, "Value", "Text"),
+           new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            ItemName:
+            @Html.TextBoxFor(model => model.ItemName, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            ItemName:
+            @Html.TextBoxFor(model => model.Color, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            ItemName:
+            @Html.TextBoxFor(model => model.ItemPrice, new { @class = "form-control" })
+        </div>
+    </div>
+
+
+
+</div>

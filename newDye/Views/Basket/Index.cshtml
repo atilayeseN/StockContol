@@ -1,0 +1,52 @@
+﻿@using newDye.Models
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (Session["userID"]==null)
+    {
+        Response.Redirect("~/User/Index");
+    }
+
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    
+    <table class="table table-bordered">
+        <tr>
+            <th>ProductId</th>
+            <th>ProductName</th>
+            <th>Color</th>
+            <th>PricePerLitre</th>
+
+        </tr>
+        <tbody>
+           @foreach (var prd in Model) {
+            <tr>
+                <td>@prd.ProductID</td>
+                <td>@prd.ProductName</td>
+                <td>@prd.Color</td>
+                <td>@prd.PricePerLitre</td>
+                <td>@using (Html.BeginForm("AddtoCart", "Basket",  new { productid = prd.ProductID }, FormMethod.Post)) {
+                    <button type="submit" class="pull-right"><i class="glyphicon-shopping-cart">Buy</i></button>
+                }
+
+
+
+
+            </tr>
+           }
+            
+        </tbody>
+    </table>
+
+
+    </body>
+</html>

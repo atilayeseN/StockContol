@@ -1,0 +1,31 @@
+﻿@using newDye.Models
+@{
+    ViewBag.Title = "ShowUsers";
+}
+
+<h2>ShowUsers</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>UserID</th>
+        <th>UserName</th>
+        <th>Name</th>
+        <th>Surname</th>
+
+
+    </tr>
+    <tbody>
+        @foreach (var usr in Model)
+        {
+        <tr>
+            <td>@usr.UserID</td>
+            <td>@usr.UserName</td>
+            <td>@usr.Name</td>
+            <td>@usr.Surname</td>
+
+
+        </tr>
+        }
+
+    </tbody>
+
+</table>

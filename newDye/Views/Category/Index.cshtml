@@ -1,0 +1,38 @@
+﻿@using newDye.Models
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <body>
+        <table class="table table-bordered">
+            <tr>
+                <th>CategoryId</th>
+                <th>CategoryName</th>
+                <th>Delete</th>
+              
+
+            </tr>
+            <tbody>
+                @foreach (var ctg in Model)
+                {
+                <tr>
+                    <td>@ctg.CategoryID</td>
+                    <td>@ctg.CategoryName</td>
+                    <td><a href="/Category/Delete/@ctg.CategoryID" class="btn btn-danger">Delete</a></td>
+                   
+
+                </tr>
+                }
+
+            </tbody>
+
+        </table>
+        <a href="/Category/NewCategory" class="btn btn-primary">AddCategory</a>
+
+
+    </body>
+
+
+
+</head>
+

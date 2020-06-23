@@ -1,0 +1,57 @@
+﻿@using newDye.Models
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (Session["userID"] == null)
+    {
+        Response.Redirect("~/User/Index");
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Pay</title>
+</head>
+<body>
+    <table class="table-bordered">
+        <tr>
+            <th>ProductName</th>
+            <th>Color</th>
+            <th>PricePerLitre</th>
+        </tr>
+        @using (Html.BeginForm("Order", "Basket"))
+        {
+            if (Session["cart"] != null)
+
+            {
+
+                foreach (var Item in (List<Item>)Session["cart"])
+                {
+                    <tr>
+                        <td>  @Item.Product.ProductName</td>
+                        <td>  @Item.Product.Color</td>
+                        <td>  @Item.Product.PricePerLitre</td>
+                        <td>  @Item.Product.ProductID</td>
+                        <td>
+                            @using (Html.BeginForm("Order", "Basket", new { prrdID = Item.Product.ProductID }, FormMethod.Post))
+                            {
+                                <button type="submit" class="pull-right"><i class="glyphicon-shopping-cart">Buy</i></button>
+                            }
+                    </tr>
+
+
+
+
+                }
+
+            }
+
+        }
+    </table>
+
+
+</body>
+</html>

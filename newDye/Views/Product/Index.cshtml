@@ -1,0 +1,33 @@
+﻿@using newDye.Models
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>ProductID</th>
+        <th>ProductName</th>
+        <th>Color</th>
+        <th>Category</th>
+        <th>PricePerLitre</th>
+    </tr>
+    <tbody>
+        @foreach (var prd in Model)
+        {
+            <tr>
+                <td>@prd.ProductID</td>
+                <td>@prd.ProductName</td>
+                <td>@prd.Color</td>
+                <td>@prd.Category</td>
+                <td>@prd.PricePerLitre</td>
+     
+                <td><a href="/Product/Delete/@prd.ProductID" class="btn btn-danger">Delete</a></td>
+       
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Product/AddProduct/" class="btn btn-primary">Add Product</a>

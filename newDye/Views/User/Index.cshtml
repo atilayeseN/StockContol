@@ -1,0 +1,59 @@
+﻿@model newDye.Models.User
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <style>
+        #login-div{
+            position:absolute;
+            left: 40%;
+            top: 40%;
+            border: 1px solid #ccc;
+            padding: 10px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="login-div">
+        @using (Html.BeginForm("Authorize","User",FormMethod.Post))
+        {
+            <table>
+                <tr>
+                    <td></td>
+                    <td style="text-decoration:underline">Dye</td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.LabelFor(model=>model.UserName)
+                    </td>
+                    <td>
+                        @Html.EditorFor(model=>model.UserName)
+                    </td>
+                </tr>
+                <tr>
+
+                    <td>   @Html.LabelFor(model => model.Password) </td>
+
+
+                    <td>  @Html.PasswordFor(model => model.Password) </td>
+
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" name="submit" value="login" />
+                        <input type="reset" name="reset" value="reset" />
+
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+</body>
+</html>

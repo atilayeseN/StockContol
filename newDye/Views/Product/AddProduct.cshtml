@@ -1,0 +1,27 @@
+﻿@model newDye.Models.Products
+@{
+    ViewBag.Title = "AddProduct";
+}
+
+<h2>AddProduct</h2>
+
+<form method="post" class="form-group">
+    <div>
+        <label>ProductName</label>
+        <input type="text" class="form-control" name="ProductName" />
+    </div>
+    <div>
+        <label>Color</label>
+        <input type="text" class="form-control" name="Color" required="" />
+    </div>
+    <label>Choose Category</label>
+    @Html.DropDownListFor(m => m.Category1.CategoryID, (IEnumerable<SelectListItem>)ViewBag.vl, new { @class = "form-control " })
+
+    <div>
+        <label>Price</label>
+        <input type="text" class="form-control" name="PricePerLitre" />
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info">AddProduct</button>
+    </div>
+</form>

@@ -1,0 +1,37 @@
+﻿@using newDye.Models
+@model List<Item>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddtoBasket</title>
+</head>
+<body>
+    <li class="dropdown">
+        <a data-toggle="dropdown" class="dropdown-toggle" href="#">Basket<b class="caret"></b> </a>
+        <ul class="dropdown">
+            @if (Session["cart"] != null)
+            {
+                foreach (var Item in (List<Item>)Session["cart"])
+                {
+                    @Item.Product.ProductName
+                }
+            }
+
+
+        </ul>
+    </li>
+
+</body>
+
+
+
+    
+               
+
+    </html>
